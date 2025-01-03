@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
 	modalContainer: {
 		flex: 1,
 		padding: 20,
+		gap: 12,
 		justifyContent: 'center',
 		backgroundColor: '#fff',
 	},
@@ -54,7 +55,6 @@ const styles = StyleSheet.create({
 		height: 40,
 		borderColor: '#ccc',
 		borderWidth: 1,
-		marginBottom: 15,
 		paddingHorizontal: 10,
 	},
 })

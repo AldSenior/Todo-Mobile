@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "APP_MY",
-    "slug": "APP_MY",
+    "name": "Ald App",
+    "slug": "Ald App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

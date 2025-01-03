@@ -75,18 +75,15 @@ const MainScreen: React.FC = () => {
 
 	return (
 		<View style={[styles.container, isDarkTheme ? styles.darkContainer : styles.lightContainer]}>
-			<TextInput
-				style={styles.searchInput}
-				placeholder="Поиск заметок..."
-				value={searchTerm}
-				onChangeText={setSearchTerm}
-				placeholderTextColor={isDarkTheme ? '#bbb' : '#aaa'}
-			/>
-
-			<Text style={styles.header}>Подготовка к экзаменам</Text>
-
 			<View style={styles.section}>
 				<Text style={styles.sectionTitle}>Заметки</Text>
+				<TextInput
+					style={styles.searchInput}
+					placeholder="Поиск заметок..."
+					value={searchTerm}
+					onChangeText={setSearchTerm}
+					placeholderTextColor={isDarkTheme ? '#bbb' : '#aaa'}
+				/>
 				<FlatList
 					data={filteredNotes}
 					renderItem={({ item }) => (

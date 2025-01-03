@@ -7,7 +7,6 @@ export default function RootLayoutNav() {
 
   return (
     <>
-
       <Slot />
       <Header />
     </>
