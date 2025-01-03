@@ -1,21 +1,9 @@
 import * as Notifications from "expo-notifications"
-import React, { useEffect, useState } from 'react'
-import { Alert, Button, FlatList, StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import NoteModal from '../components/NoteModal' // Убедитесь, что путь указан верно
+import React, { useEffect } from 'react'
+import { Alert, StyleSheet, Text, View } from 'react-native'
 
-interface Note {
-	id: string
-	title: string
-	completed: boolean
-	subject: string // Тематическое поле
-}
 
 const MainScreen: React.FC = () => {
-	const [isModalVisible, setModalVisible] = useState<boolean>(false)
-	const [notes, setNotes] = useState<Note[]>([])
-	const [searchTerm, setSearchTerm] = useState<string>('')
-	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
-
 	useEffect(() => {
 		const requestPermissions = async () => {
 			const { status } = await Notifications.requestPermissionsAsync()
@@ -45,86 +33,11 @@ const MainScreen: React.FC = () => {
 		})
 	}
 
-	const handleAddNote = (note: { title: string; subject: string }) => {
-		const newNote: Note = { id: String(notes.length + 1), title: note.title, completed: false, subject: note.subject }
-		setNotes(prevNotes => [...prevNotes, newNote])
-		scheduleNotification(note.title)
-		setModalVisible(false)
-	}
 
-	const handleDeleteNote = (id: string) => {
-		Alert.alert("Удалить заметку", "Вы уверены, что хотите удалить эту заметку?", [
-			{ text: "Отмена", style: "cancel" },
-			{ text: "Удалить", onPress: () => setNotes(prevNotes => prevNotes.filter(note => note.id !== id)) }
-		])
-	}
-
-	const toggleNoteCompletion = (id: string) => {
-		setNotes(prevNotes =>
-			prevNotes.map(note =>
-				note.id === id ? { ...note, completed: !note.completed } : note
-			)
-		)
-	}
-
-	// Фильтрация заметок по заголовку и теме
-	const filteredNotes = notes.filter(note =>
-		note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-		note.subject.toLowerCase().includes(searchTerm.toLowerCase())
-	)
 
 	return (
-		<View style={[styles.container, isDarkTheme ? styles.darkContainer : styles.lightContainer]}>
-			<TextInput
-				style={styles.searchInput}
-				placeholder="Поиск заметок..."
-				value={searchTerm}
-				onChangeText={setSearchTerm}
-				placeholderTextColor={isDarkTheme ? '#bbb' : '#aaa'}
-			/>
-
-			<Text style={styles.header}>Подготовка к экзаменам</Text>
-
-			<View style={styles.section}>
-				<Text style={styles.sectionTitle}>Заметки</Text>
-				<FlatList
-					data={filteredNotes}
-					renderItem={({ item }) => (
-						<View style={styles.noteContainer}>
-							<TouchableOpacity
-								onPress={() => toggleNoteCompletion(item.id)}
-								style={styles.noteTouchable}
-							>
-								<Text style={[styles.listItem, item.completed ? styles.completed : null]}>
-
-									{item.title} - <Text style={styles.subject}>{item.subject}</Text>
-								</Text>
-							</TouchableOpacity>
-							<TouchableOpacity
-								style={styles.deleteButton}
-								onPress={() => handleDeleteNote(item.id)}
-							>
-								<Text style={styles.deleteText}>Удалить</Text>
-							</TouchableOpacity>
-						</View>
-					)}
-					keyExtractor={item => item.id}
-					contentContainerStyle={styles.listContainer}
-				/>
-			</View>
-
-			<Button title="Добавить заметку" onPress={() => setModalVisible(true)} />
-
-			<View style={styles.toggleContainer}>
-				<Text>Темная тема</Text>
-				<Switch value={isDarkTheme} onValueChange={() => setIsDarkTheme(previous => !previous)} />
-			</View>
-
-			<NoteModal
-				isVisible={isModalVisible}
-				onClose={() => setModalVisible(false)}
-				onSubmit={handleAddNote}
-			/>
+		<View>
+			<Text>Главная</Text>
 		</View>
 	)
 }

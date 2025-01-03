@@ -4,7 +4,6 @@ import { StyleSheet, View } from 'react-native'
 const Header = () => {
 	return (
 		<View style={styles.header}>
-
 			<View style={styles.linksContainer}>
 				<Link href="/tasks" style={styles.link}>Задачи</Link>
 				<Link href="/theory" style={styles.link}>Теория</Link>
@@ -17,6 +16,8 @@ const Header = () => {
 const styles = StyleSheet.create({
 	header: {
 		padding: 20,
+		position: "absolute",
+		bottom: 0,
 		backgroundColor: '#f8f8f8',
 		borderBottomWidth: 1,
 		borderBottomColor: '#ddd',
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 	},
 	linksContainer: {
+		width: "100%",
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 	},
