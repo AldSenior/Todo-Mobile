@@ -8,6 +8,7 @@ const Header = () => {
 				<Link href="/tasks" style={styles.link}>Задачи</Link>
 				<Link href="/theory" style={styles.link}>Теория</Link>
 				<Link href="/notes" style={styles.link}>Заметки</Link>
+				<Link href="/ContactUs" style={styles.link}>Связь с нами</Link>
 			</View>
 		</View>
 	)
