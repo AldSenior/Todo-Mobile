@@ -1,6 +1,6 @@
 // app/AddTask.js
 import { useRouter } from 'expo-router'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 
 export default function AddTask() {
@@ -27,30 +27,30 @@ export default function AddTask() {
 			<Text style={styles.title}>Добавить новую задачу</Text>
 			<TextInput
 				style={styles.input}
-				placeholder="Введите задачу"
+				placeholder='Введите задачу'
 				value={task}
 				onChangeText={setTask}
 			/>
 			<TextInput
 				style={styles.input}
-				placeholder="Ограничение по времени (в минутах)"
-				keyboardType="numeric"
+				placeholder='Ограничение по времени (в минутах)'
+				keyboardType='numeric'
 				value={timeLimit}
 				onChangeText={setTimeLimit}
 			/>
 			<TextInput
 				style={styles.input}
-				placeholder="Уровень сложности"
+				placeholder='Уровень сложности'
 				value={difficulty}
 				onChangeText={setDifficulty}
 			/>
 			<TextInput
 				style={styles.input}
-				placeholder="Дополнительно (примечания)"
+				placeholder='Дополнительно (примечания)'
 				value={notes}
 				onChangeText={setNotes}
 			/>
-			<Button title="Добавить задачу" onPress={handleAddTask} />
+			<Button title='Добавить задачу' onPress={handleAddTask} />
 		</View>
 	)
 }

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Ald App",
-    "slug": "Ald App",
+    "slug": "ald-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,13 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.arthursen.aldapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.arthursen.aldapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -33,7 +35,16 @@
           "defaultChannel": "default",
           "enableBackgroundRemoteNotifications": false
         }
-      ]
-    ]
+      ],
+      "expo-router"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "3ec1b3ab-e90e-49a0-9c80-d3899e89fce3"
+      }
+    }
   }
 }

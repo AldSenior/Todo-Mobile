@@ -6,7 +6,6 @@ const TheoryScreen = () => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.header}>Теория</Text>
-			{/* Здесь будет ваш контент по задачам */}
 		</View>
 	)
 }
